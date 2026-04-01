@@ -77,6 +77,26 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Stock Availability Banner */}
+      <section className="bg-brand-yellow py-4 overflow-hidden">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="flex items-center gap-8 mx-4">
+              <span className="text-brand-dark font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5" />
+                პანელები მარაგშია / PANELS IN STOCK
+              </span>
+              <span className="text-brand-dark/30 font-black">•</span>
+              <span className="text-brand-dark font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                <Warehouse className="w-5 h-5" />
+                ბაზები თბილისსა და ქუთაისში
+              </span>
+              <span className="text-brand-dark/30 font-black">•</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Stats Section - Full Width, No Rounding */}
       <section className="py-12 bg-brand-dark border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
