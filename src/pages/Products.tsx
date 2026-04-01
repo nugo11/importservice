@@ -86,7 +86,7 @@ const Products = () => {
                   to={cat.link}
                   className="inline-flex items-center gap-3 text-brand-dark font-black text-xs group/link uppercase tracking-widest"
                 >
-                  დეტალურად
+                  {t('home.details')}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover/link:translate-x-2" />
                 </Link>
               </div>

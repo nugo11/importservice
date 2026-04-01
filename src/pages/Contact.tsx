@@ -14,7 +14,7 @@ const Contact = () => {
             {t('nav.contact')}
           </h1>
           <p className="text-xl text-brand-gray max-w-2xl mx-auto font-medium">
-            ჩვენი გუნდი მზად არის გიპასუხოთ ნებისმიერ კითხვაზე და დაგეხმაროთ საუკეთესო არჩევანის გაკეთებაში.
+            {t('contact.any_questions')}
           </p>
         </div>
 
@@ -24,7 +24,7 @@ const Contact = () => {
               <Phone className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black mb-4 text-brand-dark">{t('contact.phone')}</h3>
-            <p className="text-gray-500 mb-6 font-medium">დაგვიკავშირდით ნებისმიერ დროს</p>
+            <p className="text-gray-500 mb-6 font-medium">{t('contact.anytime')}</p>
             <a href={`tel:${phoneNumber.replace(/\s/g, '')}`} className="text-2xl font-black text-brand-dark hover:text-brand-yellow transition-colors">
               {phoneNumber}
             </a>
@@ -35,16 +35,16 @@ const Contact = () => {
               <MapPin className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black mb-4 text-brand-dark">{t('locations.title')}</h3>
-            <p className="text-gray-600 mb-2 font-black text-lg">თბილისი - ქუთაისი</p>
-            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest">მოგვწერეთ ლოკაციის მისაღებად</p>
+            <p className="text-gray-600 mb-2 font-black text-lg">Tbilisi - Kutaisi</p>
+            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest">{t('contact.location_message')}</p>
           </div>
 
           <div className="bg-white p-10 rounded-[32px] shadow-xl shadow-gray-200/50 border border-gray-100 text-center">
             <div className="w-16 h-16 rounded-2xl bg-brand-dark flex items-center justify-center text-brand-yellow mx-auto mb-8 shadow-lg shadow-brand-dark/20">
               <Clock className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-black mb-4 text-brand-dark">სამუშაო საათები</h3>
-            <p className="text-gray-500 mb-2 font-medium">ორშაბათი - შაბათი</p>
+            <h3 className="text-2xl font-black mb-4 text-brand-dark">{t('contact.hours')}</h3>
+            <p className="text-gray-500 mb-2 font-medium">{t('contact.days')}</p>
             <p className="text-brand-dark font-black text-xl">09:00 - 18:00</p>
           </div>
         </div>
@@ -54,32 +54,32 @@ const Contact = () => {
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-4">
               <MessageSquare className="text-brand-yellow w-10 h-10" />
-              გაქვთ შეკითხვები?
+              {t('contact.questions')}
             </h2>
             <p className="text-gray-300 mb-12 text-xl leading-relaxed font-medium">
-              ჩვენი მენეჯერები დაგეხმარებიან სწორი მასალის შერჩევაში, მოგაწვდიან ზუსტ ხარჯთაღრიცხვას და დაგეგმავენ მიწოდებას.
+              {t('contact.description')}
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mb-12">
               <div className="flex items-center gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm text-left">
                 <div className="w-12 h-12 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-dark shadow-lg shadow-brand-yellow/20 shrink-0">
                   <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <span className="text-lg font-bold leading-tight">უფასო გაზომვა და კონსულტაცია</span>
+                <span className="text-lg font-bold leading-tight">{t('contact.free_consultation')}</span>
               </div>
               <div className="flex items-center gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm text-left">
                 <div className="w-12 h-12 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-dark shadow-lg shadow-brand-yellow/20 shrink-0">
                   <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <span className="text-lg font-bold leading-tight">ინდივიდუალური ფასდაკლება დიდ მოცულობაზე</span>
+                <span className="text-lg font-bold leading-tight">{t('contact.discount')}</span>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a href="tel:591927558" className="btn-primary px-12 py-5 text-lg">
                 <Phone className="w-6 h-6" />
-                დაგვირეკეთ ეხლავე
+                {t('contact.call_now')}
               </a>
               <a href="https://www.facebook.com/importservis/" target="_blank" rel="noopener noreferrer" className="btn-outline px-12 py-5 text-lg border-white/20 text-white hover:bg-white hover:text-brand-dark">
-                მოგვწერეთ Facebook-ზე
+                {t('contact.facebook')}
               </a>
             </div>
           </div>

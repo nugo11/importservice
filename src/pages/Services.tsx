@@ -133,7 +133,7 @@ const Services = () => {
                   to={service.link}
                   className="inline-flex items-center gap-3 text-brand-dark font-black text-xs uppercase tracking-widest group/link"
                 >
-                  დეტალურად <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-2" />
+                  {t('home.details')} <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-2" />
                 </Link>
               </div>
             </motion.div>
@@ -147,13 +147,13 @@ const Services = () => {
           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter leading-tight">
-                რატომ <span className="text-brand-yellow">Importservisi?</span>
+                {t('services.why_title')}
               </h2>
               <div className="space-y-8">
                 {[
-                  { icon: Zap, title: "სწრაფი მშენებლობა", desc: "სენდვიჩ პანელებით მშენებლობა 3-ჯერ უფრო სწრაფია, ვიდრე ტრადიციული მეთოდებით." },
-                  { icon: ShieldCheck, title: "გარანტირებული ხარისხი", desc: "ვიყენებთ მხოლოდ სერტიფიცირებულ მასალებს და ვიცავთ ყველა სამშენებლო ნორმას." },
-                  { icon: Clock, title: "12 წლიანი გამოცდილება", desc: "ჩვენი გამოცდილება საშუალებას გვაძლევს თავიდან ავიცილოთ ნებისმიერი შეცდომა." }
+                  { icon: Zap, title: t('services.fast_construction'), desc: t('services.fast_construction_desc') },
+                  { icon: ShieldCheck, title: t('services.guaranteed_quality'), desc: t('services.guaranteed_quality_desc') },
+                  { icon: Clock, title: t('services.years_exp_title'), desc: t('services.years_exp_desc') }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6">
                     <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center text-brand-yellow shrink-0">

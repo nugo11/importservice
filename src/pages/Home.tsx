@@ -37,15 +37,15 @@ const Home = () => {
     },
     {
       id: 2,
-      title: "უმაღლესი ხარისხის სენდვიჩ პანელები თურქეთიდან",
-      subtitle: "პირდაპირი იმპორტი, საუკეთესო ფასები და გარანტირებული ხარისხი თქვენი მშენებლობისთვის.",
+      title: t('hero.slide2_title'),
+      subtitle: t('hero.slide2_subtitle'),
       image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=1920',
       cta: t('nav.products')
     },
     {
       id: 3,
-      title: "ენერგოეფექტური გადაწყვეტილებები",
-      subtitle: "დაზოგეთ 40%-მდე ენერგია ჩვენი თერმოიზოლირებული პანელებით. 40მმ-დან 150მმ-მდე სისქე.",
+      title: t('hero.slide3_title'),
+      subtitle: t('hero.slide3_subtitle'),
       image: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&q=80&w=1920',
       cta: t('nav.contact')
     }
@@ -56,30 +56,30 @@ const Home = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const stats = [
-    { label: "წელი ბაზარზე", val: "12", suffix: "" },
-    { label: "გაყიდული კვ.მ", val: "500,000", suffix: "+" },
-    { label: "ბაზები საქართველოში", val: "3", suffix: "" },
-    { label: "ხარისხის გარანტია", val: "100", suffix: "%" }
+    { label: t('stats.years'), val: "12", suffix: "" },
+    { label: t('stats.sold'), val: "500,000", suffix: "+" },
+    { label: t('stats.bases'), val: "3", suffix: "" },
+    { label: t('stats.guarantee'), val: "100", suffix: "%" }
   ];
 
   return (
     <div className="bg-brand-light">
       {/* Hero Slider Section */}
       <section className="relative h-[85vh] min-h-[600px] overflow-hidden bg-brand-dark">
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "linear" }}
+            className="absolute inset-0 will-change-[opacity]"
           >
             <img 
               src={slides[currentSlide].image} 
@@ -178,13 +178,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">სენდვიჩ პანელები</h2>
+              <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">{t('home.products_title')}</h2>
               <p className="text-lg text-brand-gray font-medium">
-                უმაღლესი ხარისხის თურქული სენდვიჩ პანელები. ჩვენ გთავაზობთ საუკეთესო თერმოიზოლაციას და გამძლეობას ნებისმიერი ტიპის მშენებლობისთვის.
+                {t('home.products_desc')}
               </p>
             </div>
             <Link to="/products" className="btn-primary px-8 py-4">
-              ყველა პროდუქტი
+              {t('home.all_products')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -229,7 +229,7 @@ const Home = () => {
                     to={prod.link}
                     className="inline-flex items-center gap-4 text-brand-yellow font-black text-base uppercase tracking-widest"
                   >
-                    დეტალურად <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                    {t('home.details')} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </Link>
                 </div>
               </motion.div>
@@ -244,7 +244,7 @@ const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">{t('home.services_title')}</h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto font-medium">
-              სენდვიჩ პანელები იდეალურია ნებისმიერი ტიპის შენობისთვის. გაიგეთ მეტი ჩვენი გადაწყვეტილებების შესახებ.
+              {t('home.services_desc')}
             </p>
           </div>
 
@@ -279,7 +279,7 @@ const Home = () => {
           
           <div className="mt-16 text-center">
             <Link to="/services" className="btn-primary px-10 py-4">
-              ყველა მომსახურება
+              {t('home.all_services')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -305,7 +305,7 @@ const Home = () => {
               </div>
               <div className="absolute -bottom-8 -right-8 bg-brand-yellow p-8 rounded-[32px] shadow-2xl max-w-[220px]">
                 <p className="text-brand-dark font-black text-4xl mb-1">12</p>
-                <p className="text-brand-dark font-bold text-[10px] uppercase tracking-widest leading-tight">წლიანი გამოცდილება ბაზარზე</p>
+                <p className="text-brand-dark font-bold text-[10px] uppercase tracking-widest leading-tight">{t('home.years_exp')}</p>
               </div>
             </motion.div>
 
@@ -315,16 +315,16 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
               >
                 <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-8 leading-tight tracking-tighter">
-                  სენდვიჩ პანელების <span className="text-brand-yellow">ყველაზე ძველი</span> იმპორტიორები
+                  {t('home.oldest_importers')}
                 </h2>
                 <p className="text-lg text-brand-gray mb-10 font-medium leading-relaxed">
-                  ჩვენ ვართ სენდვიჩ პანელების წამყვანი იმპორტიორები საქართველოში. 12 წელზე მეტია, რაც ვთანამშრომლობთ თურქეთის საუკეთესო ქარხნებთან, რათა შემოგთავაზოთ უმაღლესი ხარისხის პროდუქცია.
+                  {t('home.about_text')}
                 </p>
                 
                 <div className="grid sm:grid-cols-2 gap-6 mb-10">
                   {[
-                    { icon: ShieldCheck, title: "ხარისხის კონტროლი", desc: "ISO 9001 სტანდარტები" },
-                    { icon: Truck, title: "სწრაფი მიწოდება", desc: "ბაზები თბილისსა და ქუთაისში" },
+                    { icon: ShieldCheck, title: t('home.quality_control'), desc: t('home.iso_standards') },
+                    { icon: Truck, title: t('home.fast_delivery'), desc: t('home.bases_desc') },
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <div className="w-12 h-12 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-dark shrink-0 shadow-lg shadow-brand-yellow/20">
@@ -354,9 +354,9 @@ const Home = () => {
       <section className="py-24 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">ჩვენი ბაზები</h2>
+            <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">{t('home.our_bases')}</h2>
             <p className="text-lg text-brand-gray max-w-2xl mx-auto font-medium">
-              გვეწვიეთ ჩვენს ბაზებზე თბილისსა და ქუთაისში. ჩვენი სპეციალისტები დაგეხმარებიან სწორი არჩევანის გაკეთებაში.
+              {t('home.bases_visit')}
             </p>
           </div>
           <Map />
@@ -368,11 +368,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-16">
             <div>
-              <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">ბლოგი</h2>
-              <p className="text-lg text-brand-gray font-medium">სიახლეები და რჩევები მშენებლობის შესახებ</p>
+              <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 tracking-tighter">{t('blog.title')}</h2>
+              <p className="text-lg text-brand-gray font-medium">{t('home.blog_subtitle')}</p>
             </div>
             <Link to="/blog" className="hidden md:flex items-center gap-4 text-brand-dark font-black text-lg group">
-              ყველა პოსტი
+              {t('home.all_posts')}
               <div className="w-10 h-10 rounded-full border-2 border-brand-dark flex items-center justify-center group-hover:bg-brand-dark group-hover:text-white transition-all">
                 <ArrowRight className="w-5 h-5" />
               </div>
@@ -424,10 +424,10 @@ const Home = () => {
             
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-none tracking-tighter">
-                გაქვთ <span className="text-brand-yellow">შეკითხვები?</span>
+                {t('home.have_questions')}
               </h2>
               <p className="text-lg text-gray-400 mb-12 font-medium">
-                ჩვენი გუნდი მზად არის დაგეხმაროთ. დაგვიკავშირდით ნებისმიერ დროს ტელეფონით ან სოციალური ქსელებით.
+                {t('home.contact_team')}
               </p>
               
               <div className="grid sm:grid-cols-3 gap-6">
@@ -439,7 +439,7 @@ const Home = () => {
                     <Phone className="w-7 h-7" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1 group-hover:text-brand-dark/60">დაგვირეკეთ</p>
+                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1 group-hover:text-brand-dark/60">{t('home.call_us')}</p>
                     <p className="text-xl font-black">591 92 75 58</p>
                   </div>
                 </a>
@@ -467,7 +467,7 @@ const Home = () => {
                     <Mail className="w-7 h-7" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1 group-hover:text-brand-dark/60">მოგვწერეთ</p>
+                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1 group-hover:text-brand-dark/60">{t('home.write_us')}</p>
                     <p className="text-base font-black">info@importservisi.ge</p>
                   </div>
                 </a>
