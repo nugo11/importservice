@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+GO:wght@300;400;500;600;700;800&display=swap');
+@import "bpg-glaho-web-caps/css/bpg-glaho-web-caps.min.css";
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Fira GO", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "BPG Glaho WEB Caps", ui-sans-serif, system-ui, sans-serif;
   --color-brand-dark: #222831;
   --color-brand-gray: #393E46;
   --color-brand-yellow: #FFD369;

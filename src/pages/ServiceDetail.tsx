@@ -28,7 +28,7 @@ const ServiceDetail = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://images.unsplash.com/photo-1590644365607-1c5a519a9a37?auto=format&fit=crop&q=80&w=1200",
+      image: "https://picsum.photos/seed/container-detail/800/800",
       features: [
         "საოფისე კონტეინერები",
         "სასაწყობე კონტეინერები",
@@ -42,7 +42,7 @@ const ServiceDetail = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200",
+      image: "https://picsum.photos/seed/warehouse-detail/800/800",
       features: [
         "ლოგისტიკური ცენტრები",
         "საწარმოო საწყობები",
@@ -56,7 +56,7 @@ const ServiceDetail = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200",
+      image: "https://picsum.photos/seed/cold-storage-detail/800/800",
       features: [
         "ხილ-ბოსტნეულის საცავები",
         "ხორცპროდუქტების მაცივრები",
@@ -70,7 +70,7 @@ const ServiceDetail = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200",
+      image: "https://picsum.photos/seed/commercial-detail/800/800",
       features: [
         "სავაჭრო ცენტრები",
         "მაღაზიები და მარკეტები",
@@ -84,7 +84,7 @@ const ServiceDetail = () => {
       desc: t('services.industrial.desc'),
       types: t('services.industrial.types'),
       icon: Factory,
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=1200",
+      image: "https://picsum.photos/seed/industrial-detail/800/800",
       features: [
         "საწარმოო ხაზები",
         "საამქროები",
@@ -151,7 +151,7 @@ const ServiceDetail = () => {
               {[1, 2, 3].map((i) => (
                 <div key={i} className="aspect-square rounded-3xl overflow-hidden shadow-lg border-4 border-white">
                   <img 
-                    src={`${service.image}&sig=${i}`} 
+                    src={service.image} 
                     alt={`${service.title} ${i}`}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"

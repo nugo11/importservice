@@ -18,7 +18,7 @@ const WallPanels = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl mb-8 border-[12px] border-white">
               <img 
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200" 
+                src="https://picsum.photos/seed/wall-detail/800/1000" 
                 alt="Wall Sandwich Panels Detail" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"

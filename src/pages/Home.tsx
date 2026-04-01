@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { 
   ArrowRight, 
   ShieldCheck, 
   Globe, 
   Truck, 
-  ChevronLeft, 
-  ChevronRight,
   Layers,
   Layout,
   Phone,
@@ -25,41 +23,6 @@ import { blogPosts } from '../data/blogPosts';
 
 const Home = () => {
   const { t } = useTranslation();
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      id: 1,
-      title: t('hero.title'),
-      subtitle: t('hero.subtitle'),
-      image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=1920',
-      cta: t('hero.cta')
-    },
-    {
-      id: 2,
-      title: t('hero.slide2_title'),
-      subtitle: t('hero.slide2_subtitle'),
-      image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=1920',
-      cta: t('nav.products')
-    },
-    {
-      id: 3,
-      title: t('hero.slide3_title'),
-      subtitle: t('hero.slide3_subtitle'),
-      image: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&q=80&w=1920',
-      cta: t('nav.contact')
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const stats = [
     { label: t('stats.years'), val: "12", suffix: "" },
@@ -70,34 +33,24 @@ const Home = () => {
 
   return (
     <div className="bg-brand-light">
-      {/* Hero Slider Section */}
+      {/* Static Hero Section */}
       <section className="relative h-[85vh] min-h-[600px] overflow-hidden bg-brand-dark">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "linear" }}
-            className="absolute inset-0 will-change-[opacity]"
-          >
-            <img 
-              src={slides[currentSlide].image} 
-              alt={slides[currentSlide].title}
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-brand-dark/60 backdrop-blur-[1px]" />
-          </motion.div>
-        </AnimatePresence>
+        <div className="absolute inset-0">
+          <img 
+            src="https://picsum.photos/seed/industrial-hero/1920/1080" 
+            alt={t('hero.title')}
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-brand-dark/60 backdrop-blur-[1px]" />
+        </div>
 
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
-              key={currentSlide + '-content'}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              transition={{ duration: 0.8 }}
               className="max-w-3xl"
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow/20 text-brand-yellow text-[10px] font-black uppercase tracking-widest mb-6 border border-brand-yellow/30 backdrop-blur-md">
@@ -105,14 +58,14 @@ const Home = () => {
                 {t('quality.made_in')}
               </div>
               <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 leading-[1]">
-                {slides[currentSlide].title}
+                {t('hero.title')}
               </h1>
               <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed font-medium">
-                {slides[currentSlide].subtitle}
+                {t('hero.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/products" className="btn-primary px-8 py-3.5 text-base">
-                  {slides[currentSlide].cta}
+                  {t('hero.cta')}
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link to="/contact" className="btn-outline px-8 py-3.5 text-base border-white/20 text-white hover:bg-white hover:text-brand-dark">
@@ -121,33 +74,6 @@ const Home = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-
-        {/* Slider Controls */}
-        <div className="absolute bottom-8 right-8 flex items-center gap-3 z-20">
-          <button 
-            onClick={prevSlide}
-            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 h-1 bg-brand-yellow/20 w-full z-20">
-          <motion.div 
-            key={currentSlide}
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 6, ease: "linear" }}
-            className="h-full bg-brand-yellow"
-          />
         </div>
       </section>
 
@@ -194,14 +120,14 @@ const Home = () => {
               { 
                 title: t('nav.wall_panels'), 
                 desc: t('products.wall.desc'), 
-                img: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1200",
+                img: "https://picsum.photos/seed/wall-panels/800/600",
                 link: "/products/wall",
                 icon: Layout
               },
               { 
                 title: t('nav.roof_panels'), 
                 desc: t('products.roof.desc'), 
-                img: "https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&q=80&w=1200",
+                img: "https://picsum.photos/seed/roof-panels/800/600",
                 link: "/products/roof",
                 icon: Layers
               }
@@ -250,10 +176,10 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: t('services.warehouses'), icon: Warehouse, link: "/services/warehouses", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" },
-              { title: t('services.cold_storage'), icon: ThermometerSnowflake, link: "/services/cold_storage", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" },
-              { title: t('services.containers'), icon: Box, link: "/services/containers", image: "https://images.unsplash.com/photo-1590644365607-1c5a519a9a37?auto=format&fit=crop&q=80&w=800" },
-              { title: t('services.commercial'), icon: ShoppingBag, link: "/services/commercial", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" }
+              { title: t('services.warehouses'), icon: Warehouse, link: "/services/warehouses", image: "https://picsum.photos/seed/warehouse/600/600" },
+              { title: t('services.cold_storage'), icon: ThermometerSnowflake, link: "/services/cold_storage", image: "https://picsum.photos/seed/cold-storage/600/600" },
+              { title: t('services.containers'), icon: Box, link: "/services/containers", image: "https://picsum.photos/seed/container/600/600" },
+              { title: t('services.commercial'), icon: ShoppingBag, link: "/services/commercial", image: "https://picsum.photos/seed/commercial/600/600" }
             ].map((service, i) => (
               <Link 
                 key={i}
@@ -297,7 +223,7 @@ const Home = () => {
             >
               <div className="relative rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white">
                 <img 
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://picsum.photos/seed/sandwich-panel/800/1000" 
                   alt="Sandwich Panels" 
                   className="w-full aspect-[4/5] object-cover"
                   referrerPolicy="no-referrer"

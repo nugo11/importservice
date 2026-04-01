@@ -13,7 +13,7 @@ const Products = () => {
       title: t('products.roof.title'),
       desc: t('products.roof.desc'),
       link: '/products/roof',
-      image: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://picsum.photos/seed/roof-panels-cat/800/600',
       icon: Layers
     },
     {
@@ -21,7 +21,7 @@ const Products = () => {
       title: t('products.wall.title'),
       desc: t('products.wall.desc'),
       link: '/products/wall',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://picsum.photos/seed/wall-panels-cat/800/600',
       icon: Layout
     },
     {
@@ -29,7 +29,7 @@ const Products = () => {
       title: t('products.cold_doors.title'),
       desc: t('products.cold_doors.desc'),
       link: '/contact',
-      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://picsum.photos/seed/cold-doors-cat/800/600',
       icon: ThermometerSnowflake
     }
   ];

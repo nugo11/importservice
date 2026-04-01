@@ -25,7 +25,7 @@ const Services = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://images.unsplash.com/photo-1590644365607-1c5a519a9a37?auto=format&fit=crop&q=80&w=800",
+      image: "https://picsum.photos/seed/container-service/800/600",
       link: "/services/containers"
     },
     {
@@ -34,7 +34,7 @@ const Services = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+      image: "https://picsum.photos/seed/warehouse-service/800/600",
       link: "/services/warehouses"
     },
     {
@@ -43,7 +43,7 @@ const Services = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800",
+      image: "https://picsum.photos/seed/cold-storage-service/800/600",
       link: "/services/cold_storage"
     },
     {
@@ -52,7 +52,7 @@ const Services = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+      image: "https://picsum.photos/seed/commercial-service/800/600",
       link: "/services/commercial"
     },
     {

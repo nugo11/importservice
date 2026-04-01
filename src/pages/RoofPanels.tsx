@@ -18,7 +18,7 @@ const RoofPanels = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl mb-8 border-[12px] border-white">
               <img 
-                src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&q=80&w=1200" 
+                src="https://picsum.photos/seed/roof-detail/800/1000" 
                 alt="Roof Sandwich Panels Detail" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"
