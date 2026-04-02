@@ -38,7 +38,7 @@ const About = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white">
               <img 
-                src="https://source.unsplash.com/800x1000/?warehouse,interior" 
+                src="https://i.ibb.co/0p2WHsWv/shutterstock-1715582929-scaled.jpg" 
                 alt="Our Warehouse" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"
