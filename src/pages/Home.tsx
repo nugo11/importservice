@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { 
   ArrowRight, 
@@ -31,13 +32,15 @@ const Home = () => {
     { label: t('stats.guarantee'), val: "100", suffix: "%" }
   ];
 
+  usePageMeta({ title: t('hero.title'), description: t('hero.subtitle') });
+
   return (
     <div className="bg-brand-light">
       {/* Static Hero Section */}
       <section className="relative h-[85vh] min-h-[600px] overflow-hidden bg-brand-dark">
         <div className="absolute inset-0">
           <img 
-            src="https://picsum.photos/seed/industrial-hero/1920/1080" 
+            src="https://i.ibb.co/HDt9W7zF/shutterstock-1822759466-scaled.jpg" 
             alt={t('hero.title')}
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -140,14 +143,14 @@ const Home = () => {
               { 
                 title: t('nav.wall_panels'), 
                 desc: t('products.wall.desc'), 
-                img: "https://picsum.photos/seed/wall-panels/800/600",
+                img: "https://i.ibb.co/gbbL6C7L/image.jpg",
                 link: "/products/wall",
                 icon: Layout
               },
               { 
                 title: t('nav.roof_panels'), 
                 desc: t('products.roof.desc'), 
-                img: "https://picsum.photos/seed/roof-panels/800/600",
+                img: "https://i.ibb.co/Zzcgm3tw/image.jpg",
                 link: "/products/roof",
                 icon: Layers
               }
@@ -196,10 +199,10 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: t('services.warehouses'), icon: Warehouse, link: "/services/warehouses", image: "https://picsum.photos/seed/warehouse/600/600" },
-              { title: t('services.cold_storage'), icon: ThermometerSnowflake, link: "/services/cold_storage", image: "https://picsum.photos/seed/cold-storage/600/600" },
-              { title: t('services.containers'), icon: Box, link: "/services/containers", image: "https://picsum.photos/seed/container/600/600" },
-              { title: t('services.commercial'), icon: ShoppingBag, link: "/services/commercial", image: "https://picsum.photos/seed/commercial/600/600" }
+              { title: t('services.warehouses'), icon: Warehouse, link: "/services/warehouses", image: "https://i.ibb.co/6RjCS9wD/image.jpg" },
+              { title: t('services.cold_storage'), icon: ThermometerSnowflake, link: "/services/cold_storage", image: "https://i.ibb.co/DgCRPnMp/image.jpg" },
+              { title: t('services.containers'), icon: Box, link: "/services/containers", image: "https://i.ibb.co/xqWGTpgS/image.jpg" },
+              { title: t('services.commercial'), icon: ShoppingBag, link: "/services/commercial", image: "https://i.ibb.co/1Jpp2zhB/image.jpg" }
             ].map((service, i) => (
               <Link 
                 key={i}
@@ -243,7 +246,7 @@ const Home = () => {
             >
               <div className="relative rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white">
                 <img 
-                  src="https://picsum.photos/seed/sandwich-panel/800/1000" 
+                  src="https://i.ibb.co/0p2WHsWv/shutterstock-1715582929-scaled.jpg" 
                   alt="Sandwich Panels" 
                   className="w-full aspect-[4/5] object-cover"
                   referrerPolicy="no-referrer"

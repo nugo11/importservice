@@ -1,11 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { CheckCircle2, Layout, Phone } from 'lucide-react';
 
 const WallPanels = () => {
   const { t } = useTranslation();
   const thicknesses = ["40mm", "50mm", "80mm", "100mm", "150mm"];
+
+  usePageMeta({ title: t('products.wall.title'), description: t('products.wall.desc') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
@@ -18,7 +21,7 @@ const WallPanels = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl mb-8 border-[12px] border-white">
               <img 
-                src="https://picsum.photos/seed/wall-detail/800/1000" 
+                src="https://i.ibb.co/gbbL6C7L/image.jpg" 
                 alt="Wall Sandwich Panels Detail" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"

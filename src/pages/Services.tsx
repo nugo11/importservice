@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { 
   Box, 
@@ -25,7 +26,7 @@ const Services = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://picsum.photos/seed/container-service/800/600",
+      image: "https://i.ibb.co/xqWGTpgS/image.jpg",
       link: "/services/containers"
     },
     {
@@ -34,7 +35,7 @@ const Services = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://picsum.photos/seed/warehouse-service/800/600",
+      image: "https://i.ibb.co/6RjCS9wD/image.jpg",
       link: "/services/warehouses"
     },
     {
@@ -43,7 +44,7 @@ const Services = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://picsum.photos/seed/cold-storage-service/800/600",
+      image: "https://i.ibb.co/DgCRPnMp/image.jpg",
       link: "/services/cold_storage"
     },
     {
@@ -52,7 +53,7 @@ const Services = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://picsum.photos/seed/commercial-service/800/600",
+      image: "https://i.ibb.co/1Jpp2zhB/image.jpg",
       link: "/services/commercial"
     },
     {
@@ -61,7 +62,7 @@ const Services = () => {
       desc: t('services.industrial.desc'),
       types: t('services.industrial.types'),
       icon: Factory,
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=800",
+      image: "https://i.ibb.co/HDt9W7zF/shutterstock-1822759466-scaled.jpg",
       link: "/services/industrial"
     },
     {
@@ -74,6 +75,8 @@ const Services = () => {
       link: "/services/agricultural"
     }
   ];
+
+  usePageMeta({ title: t('services.title'), description: t('services.desc') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
@@ -170,7 +173,7 @@ const Services = () => {
             <div className="relative">
               <div className="rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://i.ibb.co/0p2WHsWv/shutterstock-1715582929-scaled.jpg" 
                   alt="Construction Process" 
                   className="w-full aspect-square object-cover"
                   referrerPolicy="no-referrer"

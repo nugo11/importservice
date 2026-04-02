@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { 
   ArrowLeft, 
@@ -28,7 +29,7 @@ const ServiceDetail = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://picsum.photos/seed/container-detail/800/800",
+      image: "https://i.ibb.co/xqWGTpgS/image.jpg",
       features: [
         "საოფისე კონტეინერები",
         "სასაწყობე კონტეინერები",
@@ -42,7 +43,7 @@ const ServiceDetail = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://picsum.photos/seed/warehouse-detail/800/800",
+      image: "https://i.ibb.co/6RjCS9wD/image.jpg",
       features: [
         "ლოგისტიკური ცენტრები",
         "საწარმოო საწყობები",
@@ -56,7 +57,7 @@ const ServiceDetail = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://picsum.photos/seed/cold-storage-detail/800/800",
+      image: "https://i.ibb.co/3ynjY1jc/image.jpg",
       features: [
         "ხილ-ბოსტნეულის საცავები",
         "ხორცპროდუქტების მაცივრები",
@@ -70,7 +71,7 @@ const ServiceDetail = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://picsum.photos/seed/commercial-detail/800/800",
+      image: "https://i.ibb.co/1Jpp2zhB/image.jpg",
       features: [
         "სავაჭრო ცენტრები",
         "მაღაზიები და მარკეტები",
@@ -84,7 +85,7 @@ const ServiceDetail = () => {
       desc: t('services.industrial.desc'),
       types: t('services.industrial.types'),
       icon: Factory,
-      image: "https://picsum.photos/seed/industrial-detail/800/800",
+      image: "https://i.ibb.co/HDt9W7zF/shutterstock-1822759466-scaled.jpg",
       features: [
         "საწარმოო ხაზები",
         "საამქროები",
@@ -119,6 +120,8 @@ const ServiceDetail = () => {
       </div>
     );
   }
+
+  usePageMeta({ title: service.title, description: service.desc, image: service.image });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">

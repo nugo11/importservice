@@ -1,11 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { CheckCircle2, Layers, Phone } from 'lucide-react';
 
 const RoofPanels = () => {
   const { t } = useTranslation();
   const thicknesses = ["40mm", "50mm", "80mm", "100mm", "150mm"];
+
+  usePageMeta({ title: t('products.roof.title'), description: t('products.roof.desc') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
@@ -18,7 +21,7 @@ const RoofPanels = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl mb-8 border-[12px] border-white">
               <img 
-                src="https://picsum.photos/seed/roof-detail/800/1000" 
+                src="https://i.ibb.co/Zzcgm3tw/image.jpg" 
                 alt="Roof Sandwich Panels Detail" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"

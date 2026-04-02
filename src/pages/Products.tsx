@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Layers, Layout, ThermometerSnowflake } from 'lucide-react';
@@ -13,7 +14,7 @@ const Products = () => {
       title: t('products.roof.title'),
       desc: t('products.roof.desc'),
       link: '/products/roof',
-      image: 'https://picsum.photos/seed/roof-panels-cat/800/600',
+      image: 'https://i.ibb.co/Zzcgm3tw/image.jpg',
       icon: Layers
     },
     {
@@ -21,7 +22,7 @@ const Products = () => {
       title: t('products.wall.title'),
       desc: t('products.wall.desc'),
       link: '/products/wall',
-      image: 'https://picsum.photos/seed/wall-panels-cat/800/600',
+      image: 'https://i.ibb.co/gbbL6C7L/image.jpg',
       icon: Layout
     },
     {
@@ -29,10 +30,12 @@ const Products = () => {
       title: t('products.cold_doors.title'),
       desc: t('products.cold_doors.desc'),
       link: '/contact',
-      image: 'https://picsum.photos/seed/cold-doors-cat/800/600',
+      image: 'https://i.ibb.co/3ynjY1jc/image.jpg',
       icon: ThermometerSnowflake
     }
   ];
+
+  usePageMeta({ title: t('products.main_title'), description: t('products.main_desc') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">

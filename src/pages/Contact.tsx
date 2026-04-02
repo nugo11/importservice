@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { Phone, MapPin, Mail, Clock, MessageSquare, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
   const { t } = useTranslation();
   const phoneNumber = "591 92 75 58";
+
+  usePageMeta({ title: t('nav.contact'), description: t('contact.any_questions') });
 
   return (
     <div className="pt-32 pb-20">

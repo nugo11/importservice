@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { ArrowLeft, Calendar, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
@@ -22,6 +23,8 @@ const BlogPostDetail = () => {
   }
 
   const relatedPosts = blogPosts.filter(p => p.id !== id).slice(0, 3);
+
+  usePageMeta({ title: post.title, description: post.excerpt, image: post.image });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">

@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { ShieldCheck, Globe, Truck, Users, Award, CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   const { t } = useTranslation();
+
+  usePageMeta({ title: t('nav.about'), description: t('about.content') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
@@ -35,7 +38,7 @@ const About = () => {
           >
             <div className="rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white">
               <img 
-                src="https://picsum.photos/seed/about-warehouse/800/1000" 
+                src="https://source.unsplash.com/800x1000/?warehouse,interior" 
                 alt="Our Warehouse" 
                 className="w-full aspect-[4/5] object-cover"
                 referrerPolicy="no-referrer"

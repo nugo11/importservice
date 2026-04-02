@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import usePageMeta from '../lib/usePageMeta';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
@@ -7,6 +8,8 @@ import { Calendar, Tag, ArrowRight } from 'lucide-react';
 
 const Blog = () => {
   const { t } = useTranslation();
+
+  usePageMeta({ title: t('blog.title'), description: t('home.blog_subtitle') });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
