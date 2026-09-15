@@ -7,41 +7,62 @@ import { ShieldCheck, Globe, Truck, Users, Award, CheckCircle2 } from 'lucide-re
 const About = () => {
   const { t } = useTranslation();
 
-  usePageMeta({ title: t('nav.about'), description: t('about.content') });
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "ჩვენს შესახებ • Importservisi",
+    "description": "სენდვიჩ პანელების წამყვანი იმპორტიორი საქართველოში 12 წლიანი გამოცდილებით.",
+    "url": "https://importservisi.ge/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Importservisi",
+      "foundingDate": "2014",
+      "url": "https://importservisi.ge"
+    }
+  };
+
+  usePageMeta({ 
+    title: t('nav.about'), 
+    description: t('about.content'),
+    canonicalPath: '/about',
+    image: '/images/warehouse-interior.jpg',
+    schema: aboutSchema
+  });
 
   return (
-    <div className="pt-32 pb-20 bg-brand-light">
+    <div className="pt-24 pb-20 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-4xl mx-auto text-center mb-16">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter text-brand-dark mb-6"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl sm:text-5xl font-black tracking-tight text-brand-dark mb-4"
           >
             {t('nav.about')}
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-brand-gray leading-relaxed font-medium"
+            className="text-base sm:text-lg text-brand-gray leading-relaxed font-medium"
           >
             ჩვენ ვართ სენდვიჩ პანელების წამყვანი იმპორტიორი საქართველოში, რომელიც მომხმარებელს სთავაზობს უმაღლესი ხარისხის თურქულ პროდუქციას. 12 წლიანი გამოცდილება და 500,000+ კვ.მ გაყიდული პანელი ჩვენი საიმედოობის გარანტიაა.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             className="relative"
           >
-            <div className="rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white">
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <img 
-                src="https://i.ibb.co/0p2WHsWv/shutterstock-1715582929-scaled.jpg" 
-                alt="Our Warehouse" 
+                src="/images/warehouse-interior.jpg" 
+                alt="სენდვიჩ პანელების საწყობი" 
+                width={800}
+                height={1000}
                 className="w-full aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div className="absolute -bottom-8 -right-8 bg-brand-yellow p-10 rounded-[32px] shadow-2xl max-w-[240px]">

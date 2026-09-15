@@ -26,7 +26,7 @@ const Services = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://i.ibb.co/xqWGTpgS/image.jpg",
+      image: "/images/containers.jpg",
       link: "/services/containers"
     },
     {
@@ -35,7 +35,7 @@ const Services = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://i.ibb.co/6RjCS9wD/image.jpg",
+      image: "/images/warehouses.jpg",
       link: "/services/warehouses"
     },
     {
@@ -44,7 +44,7 @@ const Services = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://i.ibb.co/DgCRPnMp/image.jpg",
+      image: "/images/cold-storage.jpg",
       link: "/services/cold_storage"
     },
     {
@@ -53,7 +53,7 @@ const Services = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://i.ibb.co/1Jpp2zhB/image.jpg",
+      image: "/images/commercial.jpg",
       link: "/services/commercial"
     },
     {
@@ -62,7 +62,7 @@ const Services = () => {
       desc: t('services.industrial.desc'),
       types: t('services.industrial.types'),
       icon: Factory,
-      image: "https://i.ibb.co/HDt9W7zF/shutterstock-1822759466-scaled.jpg",
+      image: "/images/hero-bg.jpg",
       link: "/services/industrial"
     },
     {
@@ -76,7 +76,25 @@ const Services = () => {
     }
   ];
 
-  usePageMeta({ title: t('services.title'), description: t('services.desc') });
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "სენდვიჩ პანელებით მშენებლობა და მომარაგება",
+    "provider": {
+      "@type": "Organization",
+      "name": "Importservisi",
+      "url": "https://importservisi.ge"
+    },
+    "areaServed": "Georgia"
+  };
+
+  usePageMeta({ 
+    title: t('services.title'), 
+    description: t('services.desc'),
+    canonicalPath: '/services',
+    image: '/images/containers.jpg',
+    schema: servicesSchema
+  });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">
@@ -173,10 +191,11 @@ const Services = () => {
             <div className="relative">
               <div className="rounded-[48px] overflow-hidden shadow-2xl border-[12px] border-white/5">
                 <img 
-                  src="https://i.ibb.co/0p2WHsWv/shutterstock-1715582929-scaled.jpg" 
+                  src="/images/warehouse-interior.jpg" 
                   alt="Construction Process" 
+                  width={600}
+                  height={600}
                   className="w-full aspect-square object-cover"
-                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>

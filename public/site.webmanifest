@@ -1,0 +1,21 @@
+{
+  "name": "Importservisi • სენდვიჩ პანელების იმპორტი",
+  "short_name": "Importservisi",
+  "description": "უმაღლესი ხარისხის თურქული სენდვიჩ პანელები პირდაპირ მწარმოებლისგან.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#222831",
+  "theme_color": "#222831",
+  "icons": [
+    {
+      "src": "/images/sandwich-panel.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/images/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg"
+    }
+  ]
+}

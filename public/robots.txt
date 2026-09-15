@@ -1,4 +1,17 @@
+# Robots.txt for https://importservisi.ge
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /assets/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap
 Sitemap: https://importservisi.ge/sitemap.xml

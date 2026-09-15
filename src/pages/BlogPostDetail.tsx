@@ -24,10 +24,35 @@ const BlogPostDetail = () => {
 
   const relatedPosts = blogPosts.filter(p => p.id !== id).slice(0, 3);
 
-  usePageMeta({ title: post.title, description: post.excerpt, image: post.image });
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image.startsWith('http') ? post.image : `https://importservisi.ge${post.image}`,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "Importservisi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Importservisi",
+      "logo": "https://importservisi.ge/images/og-image.jpg"
+    },
+    "mainEntityOfPage": `https://importservisi.ge/blog/${id}`
+  };
+
+  usePageMeta({ 
+    title: post.title, 
+    description: post.excerpt, 
+    image: post.image,
+    canonicalPath: `/blog/${id}`,
+    schema: articleSchema
+  });
 
   return (
-    <div className="pt-32 pb-20 bg-brand-light">
+    <div className="pt-24 pb-20 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.button
           onClick={() => navigate(-1)}

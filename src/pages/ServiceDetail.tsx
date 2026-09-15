@@ -29,7 +29,7 @@ const ServiceDetail = () => {
       desc: t('services.containers.desc'),
       types: t('services.containers.types'),
       icon: Box,
-      image: "https://i.ibb.co/xqWGTpgS/image.jpg",
+      image: "/images/containers.jpg",
       features: [
         "საოფისე კონტეინერები",
         "სასაწყობე კონტეინერები",
@@ -43,7 +43,7 @@ const ServiceDetail = () => {
       desc: t('services.warehouses.desc'),
       types: t('services.warehouses.types'),
       icon: Warehouse,
-      image: "https://i.ibb.co/6RjCS9wD/image.jpg",
+      image: "/images/warehouses.jpg",
       features: [
         "ლოგისტიკური ცენტრები",
         "საწარმოო საწყობები",
@@ -57,7 +57,7 @@ const ServiceDetail = () => {
       desc: t('services.cold_storage.desc'),
       types: t('services.cold_storage.types'),
       icon: ThermometerSnowflake,
-      image: "https://i.ibb.co/3ynjY1jc/image.jpg",
+      image: "/images/cold-storage.jpg",
       features: [
         "ხილ-ბოსტნეულის საცავები",
         "ხორცპროდუქტების მაცივრები",
@@ -71,7 +71,7 @@ const ServiceDetail = () => {
       desc: t('services.commercial.desc'),
       types: t('services.commercial.types'),
       icon: ShoppingBag,
-      image: "https://i.ibb.co/1Jpp2zhB/image.jpg",
+      image: "/images/commercial.jpg",
       features: [
         "სავაჭრო ცენტრები",
         "მაღაზიები და მარკეტები",
@@ -85,7 +85,7 @@ const ServiceDetail = () => {
       desc: t('services.industrial.desc'),
       types: t('services.industrial.types'),
       icon: Factory,
-      image: "https://i.ibb.co/HDt9W7zF/shutterstock-1822759466-scaled.jpg",
+      image: "/images/hero-bg.jpg",
       features: [
         "საწარმოო ხაზები",
         "საამქროები",
@@ -121,7 +121,12 @@ const ServiceDetail = () => {
     );
   }
 
-  usePageMeta({ title: service.title, description: service.desc, image: service.image });
+  usePageMeta({ 
+    title: service.title, 
+    description: service.desc, 
+    image: service.image,
+    canonicalPath: `/services/${id}`
+  });
 
   return (
     <div className="pt-32 pb-20 bg-brand-light">

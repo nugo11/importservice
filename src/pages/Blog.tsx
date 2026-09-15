@@ -9,10 +9,30 @@ import { Calendar, Tag, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const { t } = useTranslation();
 
-  usePageMeta({ title: t('blog.title'), description: t('home.blog_subtitle') });
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "სენდვიჩ პანელების ბლოგი • Importservisi",
+    "description": "სასარგებლო სტატიები, რჩევები და სიახლეები სენდვიჩ პანელების შესახებ.",
+    "url": "https://importservisi.ge/blog",
+    "blogPost": blogPosts.map(p => ({
+      "@type": "BlogPosting",
+      "headline": p.title,
+      "datePublished": p.date,
+      "image": p.image.startsWith('http') ? p.image : `https://importservisi.ge${p.image}`,
+      "url": `https://importservisi.ge/blog/${p.id}`
+    }))
+  };
+
+  usePageMeta({ 
+    title: t('blog.title'), 
+    description: t('home.blog_subtitle'),
+    canonicalPath: '/blog',
+    schema: blogSchema
+  });
 
   return (
-    <div className="pt-32 pb-20 bg-brand-light">
+    <div className="pt-24 pb-20 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <motion.h1 

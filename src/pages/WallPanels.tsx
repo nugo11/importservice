@@ -8,23 +8,61 @@ const WallPanels = () => {
   const { t } = useTranslation();
   const thicknesses = ["40mm", "50mm", "80mm", "100mm", "150mm"];
 
-  usePageMeta({ title: t('products.wall.title'), description: t('products.wall.desc') });
+  const wallProductSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "მთავარი", "item": "https://importservisi.ge/" },
+          { "@type": "ListItem", "position": 2, "name": "პროდუქცია", "item": "https://importservisi.ge/products" },
+          { "@type": "ListItem", "position": 3, "name": "კედლის პანელები", "item": "https://importservisi.ge/products/wall" }
+        ]
+      },
+      {
+        "@type": "Product",
+        "name": "კედლის სენდვიჩ პანელები (დამალული და სტანდარტული სამაგრით)",
+        "image": "https://importservisi.ge/images/wall-panels.jpg",
+        "description": "თერმოიზოლირებული კედლის სენდვიჩ პანელები ფასადებისთვის, შიდა ტიხრებისა და სამაცივრე ოთახებისთვის (PIR, PUR, Rockwool). სისქე 40მმ-დან 150მმ-მდე. ფასი დამოკიდებულია მოცულობასა და სპეციფიკაციაზე.",
+        "brand": { "@type": "Brand", "name": "Importservisi" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "GEL",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Importservisi",
+            "telephone": "+995591927558"
+          }
+        }
+      }
+    ]
+  };
+
+  usePageMeta({ 
+    title: t('products.wall.title'), 
+    description: t('products.wall.desc'),
+    canonicalPath: '/products/wall',
+    image: '/images/wall-panels.jpg',
+    schema: wallProductSchema
+  });
 
   return (
-    <div className="pt-32 pb-20 bg-brand-light">
+    <div className="pt-24 pb-20 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:sticky lg:top-32"
+            className="lg:sticky lg:top-28"
           >
-            <div className="rounded-[48px] overflow-hidden shadow-2xl mb-8 border-[12px] border-white">
+            <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 border-8 border-white">
               <img 
-                src="https://i.ibb.co/gbbL6C7L/image.jpg" 
-                alt="Wall Sandwich Panels Detail" 
+                src="/images/wall-panels.jpg" 
+                alt="კედლის სენდვიჩ პანელი" 
+                width={800}
+                height={1000}
                 className="w-full aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div className="bg-brand-dark text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden">

@@ -7,10 +7,37 @@ const Contact = () => {
   const { t } = useTranslation();
   const phoneNumber = "591 92 75 58";
 
-  usePageMeta({ title: t('nav.contact'), description: t('contact.any_questions') });
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "კონტაქტი • Importservisi",
+    "description": "დაგვიკავშირდით სენდვიჩ პანელების შესაკვეთად: +995 591 92 75 58. ბაზები თბილისსა და ქუთაისში.",
+    "url": "https://importservisi.ge/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Importservisi",
+      "telephone": "+995591927558",
+      "email": "info@importservisi.ge",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+995591927558",
+        "contactType": "sales",
+        "areaServed": "GE",
+        "availableLanguage": ["Georgian", "English", "Russian"]
+      }
+    }
+  };
+
+  usePageMeta({ 
+    title: t('nav.contact'), 
+    description: t('contact.any_questions'),
+    canonicalPath: '/contact',
+    image: '/images/og-image.jpg',
+    schema: contactSchema
+  });
 
   return (
-    <div className="pt-32 pb-20">
+    <div className="pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-black tracking-tight text-brand-dark mb-6">
